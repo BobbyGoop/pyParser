@@ -24,6 +24,7 @@ def hh_parse(headers):
 	url_list = []
 	job = []
 	money = []
+
 	for i in range (pages_count):
 		url_list.append(base_url + f'&page={i}')
 	for url in url_list:
@@ -34,6 +35,7 @@ def hh_parse(headers):
 			if (len(divs.xpath('.//div[@class="vacancy-serp-item__sidebar"]/span/text()'))) == 1:
 				money.append (divs.xpath('.//div[@class="vacancy-serp-item__sidebar"]/span')[0].text_content())
 			else: money.append("none")
+
 	# Creating a database in json where keys = jobs
 	database = dict(zip(job, money))
 	for item in zip(job, money):
