@@ -36,9 +36,10 @@ def hh_parse(headers):
 			else: money.append("none")
 	# Creating a database in json where keys = jobs
 	database = dict(zip(job, money))
+	for item in zip(job, money):
+		print (", ".join(item))
 	with open('jobs.json', 'w', encoding="utf-8") as file:
 		 json.dump(database, file, ensure_ascii=False, indent=4 )
-
 
 
 if __name__ == '__main__':
